@@ -24,6 +24,9 @@ class User_Input():
         """
         pass
 def check_budget():
+   """
+   checks if user's budget is withing range of possible hotel options.
+   """
    pass
 
 def main():
