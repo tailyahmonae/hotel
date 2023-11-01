@@ -1,6 +1,8 @@
 import sys
 import json
 import argparse
+import numpy
+import pandas
 
 """A hotel booking simulator, that takes in user input and returns
 the  best hotel for their needs. """
