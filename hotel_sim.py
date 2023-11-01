@@ -23,7 +23,8 @@ class User_Input():
     
         """
         pass
-
+def check_budget():
+   pass
 
 def main():
     """Finds the the hotel that matches the user preferences based on 
