@@ -1,8 +1,6 @@
 import sys
 import json
 import argparse
-import numpy
-import pandas 
 
 """A hotel booking simulator, that takes in user input and returns
 the  best hotel for their needs. """
@@ -20,8 +18,8 @@ class Hotel:
     
         """
         self.name = name
-    def user_input(self):
-        """this would be a method to get user input, pls add on
+    def check_location(self):
+        """Taliyah's method
         
         """
         pass
@@ -33,18 +31,26 @@ class Hotel:
         pass
 
     def check_date(self):
-        pass
-    
-    def find_match(self):
-        """Samira's method. 
+        """Kassia's method
         """
         pass
+    
+    def find_intersection(self):
+        """Samira's method. 
+        """
+        
+        pass
+    
+def read_file():
+    """Sathya's function
+    """
+    pass
 
 def main():
     """Finds the the hotel that matches the user preferences based on 
     the user's input using the data from the specificed file.
-    
     """
+    
     pass
 
 if __name__ == '__main__':
