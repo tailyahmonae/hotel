@@ -35,12 +35,32 @@ class Hotel:
         """
         pass
     
-    def find_intersection(self):
-        """Samira's method. 
-        """
+    def find_intersection(self, user_dict, file_dict):
+        """Samira's method. Takes a dictionary made from the user's preferences
+        dictionary made earlier and a dictionary from the json file. Finds
+        the best hotel that matches the user's specified preferences from 
+        earlier.
         
-        pass
-    
+        Args:
+            user_dict (dict): Dictionary of all the user's answers for each
+            question asked earlier, has their preference in hotels.
+            file_dict (dict): Dictionary of all hotels and their details from
+            an external file.
+        
+        Returns:
+            best_hotel (dict key): Name of the best hotel found from 
+            intersection
+        """
+        best_hotel = None
+        num_intersections = 0
+        
+        for hotel_name, hotel_details in file_dict.items():
+            intersection = user_dict.intersection(hotel_details)
+            if len(intersection) > num_intersections:
+                num_intersections = len(intersection)
+                best_hotel = hotel_name
+        return best_hotel
+
 def read_file():
     """Sathya's function
     """
