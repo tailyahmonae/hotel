@@ -30,10 +30,27 @@ class Hotel:
         """
         pass
 
-    def check_date(self):
-        """Kassia's method
+    def check_date(self, file_dict):
+        """Kassia's method. Checks if user's preferred date is within range 
+        of possible hotel options.
+        
+        Args:
+            file_dict (dict): Dictionary of all hotels and their details from
+            an external file.
+            
+            
+        Side Effects:
+        Prints list with matching hotel name's and dates.
         """
-        pass
+        user_date = input('Enter your preferred date:')
+       
+        
+        chosen_date = [f"{name} {details[1]}" for name, details
+                       in file_dict.items() if user_date == details[1]]
+        print(chosen_date)
+        
+        if len(chosen_date) == 0:
+             print ('No avaiable dates. Try again.') 
     
     def find_intersection(self, user_dict, file_dict):
         """Samira's method. Takes a dictionary made from the user's preferences
@@ -61,7 +78,7 @@ class Hotel:
                 best_hotel = hotel_name
         return best_hotel
 
-def read_file():
+def read_file(filename):
     """Sathya's function
     Load hotel data from a JSON file and return a list of hotel objects or dictionaries.
 
