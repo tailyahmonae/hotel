@@ -63,8 +63,36 @@ class Hotel:
 
 def read_file():
     """Sathya's function
+    Load hotel data from a JSON file and return a list of hotel objects or dictionaries.
+
+    Parameters:
+    filename (str): The path to the JSON file containing hotel data.
+
+    Returns:
+    list: A list of hotel objects or dictionaries with the hotel data.
     """
-    pass
+    try:
+        with open(filename, 'r') as file:
+            hotel_data = json.load(file)
+            hotels = []
+            for hotel in hotel_data:
+                hotel_dict = {
+                    'name': hotel['name'],
+                    'location': hotel['location'],
+                    'rating': hotel['rating'],
+                    'price': hotel['price'],
+                }
+                hotels.append(hotel_dict)
+            return hotels
+    except FileNotFoundError:
+        print(f"The file {filename} was not found.")
+        return []
+    except json.JSONDecodeError:
+        print(f"Error decoding JSON from the file {filename}.")
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
 
 def main():
     """Finds the the hotel that matches the user preferences based on 
