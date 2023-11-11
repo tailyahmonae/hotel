@@ -18,11 +18,28 @@ class Hotel:
     
         """
         self.name = name
-    def check_location(self):
+       
+    def check_(preferred_location, max_distance, hotels_file):
         """Taliyah's method
         
         """
-        pass
+       with open(hotels_file, 'r') as file:
+           hotels_data = [line.strip().split(',') for line in file]
+   
+       preferred_coords = (preferred_location['latitude'], preferred_location['longitude'])
+   
+       nearby_hotels = []
+       for hotel in hotels_data:
+           hotel_coords = (float(hotel[1]), float(hotel[2]))
+           distance = (preferred_coords, hotel_coords).miles
+   
+           if distance <= max_distance:
+               nearby_hotels.append({'name': hotel[0], 'distance': distance})
+   
+       return nearby_hotels
+   
+   hotels_file = 'hotel_data 
+           pass
 
     def check_budget(self):
         """Jeni's method
