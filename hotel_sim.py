@@ -27,8 +27,28 @@ class Hotel:
     def check_budget(self):
         """Jeni's method
         checks if user's budget is withing range of possible hotel options.
+        
+        Args:
+            user_budget (float): The user's inputted budget amount
+            file_dict (dict): Dictionary of all hotels and their details from an external file.
+            
+        Returns:
+            list: A list of hotels that are within the user's specified budget.
         """
-        pass
+        budget_hotels = []
+        
+        for hotel_name, details in file_dict.items():
+            hotel_price = details.get("price", 0)
+            if hotel_price <= user_budget:
+                if budget_hotels.append(hotel_name)
+        
+        if budget_hotels:
+            print(f"Hotels within budget: {', '.join(budget_hotels)}")
+        else:
+            print("No hotels within inputted budget price")
+            
+        return budget_hotels
+        
 
     def check_date(self, file_dict):
         """Kassia's method. Checks if user's preferred date is within range 
