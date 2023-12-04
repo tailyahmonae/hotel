@@ -33,22 +33,22 @@ class Hotel:
         user_data['start_date'] = start_date
         user_data['end_date'] = end_date
         
-    def check_location(self, preferred_location, max_distance, hotels_file):
-        # i don't get why we need to open the file again here??
-        with open(hotels_file, 'r') as file:
-            hotels_data = [line.strip().split(',') for line in file]
+    def check_location(self, city):
+       """ Taliyah's method
+          checks if hotel is in preferred city.
 
-        # Define the coordinates of the preferred location
-        self.preferred_coords = (preferred_location['latitude'], preferred_location['longitude'])
+          Args:
+             city (str): user's inputted preferred city
 
+          Returns:
+             list of hotels that are in the user's preferred city
+
+       """
         nearby_hotels = []
+       
         for hotel in hotels_data:
-            hotel_coords = (float(hotel[1]), float(hotel[2]))
-            # Assuming latitude is in index 1, and longitude in index 2
-            distance = (preferred_coords, hotel_coords).miles
-
-            if distance <= max_distance:
-                nearby_hotels.append({'name': hotel[0], 'distance': distance})
+            if location == self.city:
+                nearby_hotels.append(hotel_name)
 
         return nearby_hotels
 
