@@ -18,24 +18,39 @@ class Hotel:
     
         """
         self.name = name
+    
+    def user_prefs(self):
+        user_data = {}
+        name = input("Enter your name: ")
+        budget = input("Enter the max you are willing to spend: ")
+        city = input("Enter your preferred city: ")
+        start_date = input("Enter the start date of your visit: ")
+        end_date = input("Enter the end date of your visit: ")
+        
+        user_data['name'] = name
+        user_data['age'] = budget
+        user_data['city'] = city
+        user_data['start_date'] = start_date
+        user_data['end_date'] = end_date
         
     def check_location(self, preferred_location, max_distance, hotels_file):
+        # i don't get why we need to open the file again here??
         with open(hotels_file, 'r') as file:
             hotels_data = [line.strip().split(',') for line in file]
 
-    # Define the coordinates of the preferred location
-    self.preferred_coords = (preferred_location['latitude'], preferred_location['longitude'])
+        # Define the coordinates of the preferred location
+        self.preferred_coords = (preferred_location['latitude'], preferred_location['longitude'])
 
-    nearby_hotels = []
-    for hotel in hotels_data:
-    hotel_coords = (float(hotel[1]), float(hotel[2]))
-    # Assuming latitude is in index 1, and longitude in index 2
-    distance = (preferred_coords, hotel_coords).miles
+        nearby_hotels = []
+        for hotel in hotels_data:
+            hotel_coords = (float(hotel[1]), float(hotel[2]))
+            # Assuming latitude is in index 1, and longitude in index 2
+            distance = (preferred_coords, hotel_coords).miles
 
-    if distance <= max_distance:
-    nearby_hotels.append({'name': hotel[0], 'distance': distance})
+            if distance <= max_distance:
+                nearby_hotels.append({'name': hotel[0], 'distance': distance})
 
-    return nearby_hotels
+        return nearby_hotels
 
     def check_budget(self):
         """Jeni's method
@@ -53,7 +68,10 @@ class Hotel:
         for hotel_name, details in file_dict.items():
             hotel_price = details.get("price", 0)
             if hotel_price <= user_budget:
-                if budget_hotels.append(hotel_name)
+                if budget_hotels.append(hotel_name):
+                    # idk if part of got lost or if it never got implemented
+                    # but come back and fix
+                    pass
         
         if budget_hotels:
             print(f"Hotels within budget: {', '.join(budget_hotels)}")
